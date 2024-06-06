@@ -54,6 +54,11 @@ async function bootstrap() {
 
   await app.listen(port, () => {
     console.log("[WEB]", base_url);
+    console.log("Kill endpoint disabled: ", process.env.DISABLE_KILL_ENDPOINT);
+    console.log("Rate Limiting disabled: ", process.env.DISABLE_RATE_LIMITING);
+    console.log("RegexDoS disabled: ", process.env.DISABLE_REDOS);
+    console.log("OS command injection disabled: ", process.env.DISABLE_CMD_INJECTION);
+    console.log("HTTP2 enabled: ", process.env.USE_HTTP2);
   });
 }
 
