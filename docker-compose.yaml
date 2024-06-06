@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: db
+    environment:
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  no-auth:
+    build: ./noauth
+    container_name: app-no-auth
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: your_user
+      DATABASE_PASSWORD: your_password
+      DATABASE_NAME: your_database
+      DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
+      DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  basic-auth:
+    build: ./basicauth
+    container_name: app-basic-auth
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: your_user
+      DATABASE_PASSWORD: your_password
+      DATABASE_NAME: your_database
+      DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
+      DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  jwt-auth:
+    build: ./jwtauth
+    container_name: app-jwt-auth
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: your_user
+      DATABASE_PASSWORD: your_password
+      DATABASE_NAME: your_database
+      DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
+      DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
