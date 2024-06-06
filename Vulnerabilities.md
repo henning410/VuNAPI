@@ -21,6 +21,10 @@ This endpoint checks if the given input is a valid email or not.
 
 When inserting a long, malformed string, like `this_is_some_very_very_long_malformed_string`, the server becomes unreachable because it gets stuck checking if the regex is true.
 
+## `/exec`
+
+By calling this endpoint, the attacker can insert any cmd code which gets executed.
+
 ## `/login`
 
 The `/login` endpoint expects a username and a password as body.

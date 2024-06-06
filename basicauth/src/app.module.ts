@@ -11,6 +11,7 @@ import { ApiModule } from "./api/api.module";
 import { KillController } from "./api/kill/kill.controller";
 import { AuthModule } from "./auth/auth.module";
 import { RedosController } from './api/redos/redos.controller';
+import { CmdinjectController } from './api/cmdinject/cmdinject.controller';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -46,6 +47,7 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     AppController,
     ...(process.env.DISABLE_KILL_ENDPOINT === "true" ? [] : [KillController]),
     ...(process.env.DISABLE_REDOS === "true" ? [] : [RedosController]),
+    ...(process.env.DISABLE_CMD_INJECTION === "true" ? [] : [CmdinjectController])
   ],
   providers: [
     AppService,

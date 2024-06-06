@@ -24,6 +24,7 @@ You can find more details about the vulnerabilities in [this document](./Vulnera
 | GET         | /testStatusCodes | Returns different status codes than specified |
 | GET         | /kill            | Shut down the server                          |
 | GET         | /redos           | Check if email is valid                       |
+| GET         | /exec            | Execute any cmd command                       |
 | **person**  |
 | POST        | /person          | Create a new person                           |
 | PUT         | /person/{id}     | Update data of a person                       |
@@ -67,6 +68,11 @@ By default, the /kill endpoint is enabled. This can be disabled by using:
 
 By default, the RegexDoS vulnerability is enabled. This can be disabled with the following option:
 `DISABLE_REDOS=true`
+
+#### OS Command Injection
+
+By default, the OS command injection vulnerability is enabled. This can be disabled with the following option:
+`DISABLE_CMD_INJECTION=true`
 
 ## 🛡️ Vulnerabilities
 
