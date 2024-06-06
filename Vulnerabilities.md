@@ -17,7 +17,7 @@ When this endpoint is called, VuNAPI closes. We want to check how well fuzzers c
 
 This endpoint checks if the given input is a valid email or not.
 
-### ReDos
+### ReDoS
 
 When inserting a long, malformed string, like `this_is_some_very_very_long_malformed_string`, the server becomes unreachable because it gets stuck checking if the regex is true.
 

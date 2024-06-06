@@ -63,7 +63,7 @@ By default, rate limiting is enabled so that VuNAPI behaves like a real API. Thi
 By default, the /kill endpoint is enabled. This can be disabled by using:
 `DISABLE_KILL_ENDPOINT=true`
 
-#### RegexDos
+#### RegexDoS
 
 By default, the RegexDoS vulnerability is enabled. This can be disabled with the following option:
 `DISABLE_REDOS=true`
