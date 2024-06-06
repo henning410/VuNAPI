@@ -49,3 +49,31 @@ For example, to run VuNAPI without authentication, simply run in the root direct
 ```sh
 docker-compose up --build no-auth
 ```
+
+### ⚙️ Running Options / Disable Vulnerabilities
+
+#### Rate Limiting
+
+By default, rate limiting is enabled so that VuNAPI behaves like a real API. This can be disabled with the following option:
+`DISABLE_RATE_LIMITING=true`
+
+#### Unreachable Server
+
+By default, the /kill endpoint is enabled. This can be disabled by using:
+`DISABLE_KILL_ENDPOINT=true`
+
+## 🛡️ Vulnerabilities
+
+You can find more details about the vulnerabilities in [this document](./Vulnerabilities.md)
+
+## 🤝 Get Involved
+
+We welcome and encourage contributions from the community! Here are some ways you can get involved:
+
+- **Fork the Repo:** Feel free to fork the repository and experiment with your own changes.
+- **Create Issues:** If you encounter any bugs or have suggestions for new features, please create an issue. This helps us keep track of what needs attention.
+- **Submit Pull Requests:** If you've made improvements or fixed bugs, submit a pull request. We love to see contributions from the community and will review them promptly.
+- **Ask Questions:** If you have any questions or need clarification on anything, don't hesitate to ask. We're here to help!
+
+**Your contributions make this project great. Thank you for your support and stay safe! 💖**
+
