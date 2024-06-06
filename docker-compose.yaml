@@ -24,6 +24,7 @@ services:
       DATABASE_NAME: your_database
       DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      DISABLE_REDOS: ${DISABLE_REDOS:-false}
       AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
     ports:
       - "3000:3000"
@@ -41,6 +42,7 @@ services:
       DATABASE_NAME: your_database
       DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      DISABLE_REDOS: ${DISABLE_REDOS:-false}
       AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
     ports:
       - "3000:3000"
@@ -58,6 +60,7 @@ services:
       DATABASE_NAME: your_database
       DISABLE_KILL_ENDPOINT: ${DISABLE_KILL_ENDPOINT:-false}
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
+      DISABLE_REDOS: ${DISABLE_REDOS:-false}
       AUTH_STRATEGY: ${AUTH_STRATEGY:-jwt}
     ports:
       - "3000:3000"

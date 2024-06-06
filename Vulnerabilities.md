@@ -1,9 +1,30 @@
 # Vulnerabilities in VuNAPI
 
+## `/testStatusCodes`
+
+We decided to implement this to see if fuzzers would detect status codes that are not specified in the OAS and are other than 500.
+
+### Misalignment with OAS
+
+According to the specification, the application should return a 200 or 400 status code when the endpoint `/testStatusCodes` is called.
+However, the application is deliberately programmed to permanently return a 403 status code.
+
+## `/kill`
+
+When this endpoint is called, VuNAPI closes. We want to check how well fuzzers can handle the fact that the application is no longer accessible.
+
+## `/redos`
+
+This endpoint checks if the given input is a valid email or not.
+
+### ReDos
+
+When inserting a long, malformed string, like `this_is_some_very_very_long_malformed_string`, the server becomes unreachable because it gets stuck checking if the regex is true.
+
 ## `/login`
 
 The `/login` endpoint expects a username and a password as body.
-In accordance with the specification, the corresponding person is returned if the login data is correct. If the login data is incorrect, an error message is returned.
+In accordance with the specification, the corresponding person is returned if the login data is correct or the JWT. If the login data is incorrect, an error message is returned.
 
 ### SQL injection
 
@@ -20,16 +41,3 @@ The `/person/{id}` endpoint enables access to and deletion of a specific person.
 ### Integer Overflow
 
 In the event that a number is specified for the ID that exceeds the size of an integer, the server will return a 500 status code.
-
-## `/testStatusCodes`
-
-We decided to implement this to see if fuzzers would detect status codes that are not specified in the OAS and are other than 500.
-
-### Misalignment with OAS
-
-According to the specification, the application should return a 200 or 400 status code when the endpoint `/testStatusCodes` is called.
-However, the application is deliberately programmed to permanently return a 403 status code.
-
-## `/kill`
-
-When this endpoint is called, VuNAPI closes. We want to check how well fuzzers can deal with the fact that the application is no longer accessible

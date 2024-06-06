@@ -10,6 +10,7 @@ import { TypeOrmConfigService } from "./shared/typeorm/typeorm.service";
 import { ApiModule } from "./api/api.module";
 import { KillController } from "./api/kill/kill.controller";
 import { AuthModule } from "./auth/auth.module";
+import { RedosController } from './api/redos/redos.controller';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 
@@ -41,7 +42,11 @@ const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
     ApiModule,
     AuthModule,
   ],
-  controllers: [AppController, ...(process.env.DISABLE_KILL_ENDPOINT === "true" ? [] : [KillController])],
+  controllers: [
+    AppController,
+    ...(process.env.DISABLE_KILL_ENDPOINT === "true" ? [] : [KillController]),
+    ...(process.env.DISABLE_REDOS === "true" ? [] : [RedosController]),
+  ],
   providers: [
     AppService,
     ...(process.env.DISABLE_RATE_LIMITING === "true"

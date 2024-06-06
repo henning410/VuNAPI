@@ -23,6 +23,7 @@ You can find more details about the vulnerabilities in [this document](./Vulnera
 | HEAD        | /isAlive         | Check if VuNAPI is running                    |
 | GET         | /testStatusCodes | Returns different status codes than specified |
 | GET         | /kill            | Shut down the server                          |
+| GET         | /redos           | Check if email is valid                       |
 | **person**  |
 | POST        | /person          | Create a new person                           |
 | PUT         | /person/{id}     | Update data of a person                       |
@@ -62,6 +63,11 @@ By default, rate limiting is enabled so that VuNAPI behaves like a real API. Thi
 By default, the /kill endpoint is enabled. This can be disabled by using:
 `DISABLE_KILL_ENDPOINT=true`
 
+#### RegexDos
+
+By default, the RegexDoS vulnerability is enabled. This can be disabled with the following option:
+`DISABLE_REDOS=true`
+
 ## 🛡️ Vulnerabilities
 
 You can find more details about the vulnerabilities in [this document](./Vulnerabilities.md)
@@ -76,4 +82,3 @@ We welcome and encourage contributions from the community! Here are some ways yo
 - **Ask Questions:** If you have any questions or need clarification on anything, don't hesitate to ask. We're here to help!
 
 **Your contributions make this project great. Thank you for your support and stay safe! 💖**
-
