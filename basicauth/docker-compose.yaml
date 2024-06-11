@@ -26,7 +26,7 @@ services:
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
       DISABLE_REDOS: ${DISABLE_REDOS:-false}
       DISABLE_CMD_INJECTION: ${DISABLE_CMD_INJECTION:-false}
-      USE_HTTP2: ${USE_HTTP2:-false} 
+      DISABLE_HTTP2: ${DISABLE_HTTP2:-false} 
     ports:
       - "3000:3000"
     depends_on:
