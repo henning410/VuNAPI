@@ -54,6 +54,7 @@ async function bootstrap() {
     console.log("                                          ")
 
     console.log(`\x1b[33mVuNAPI is running on: ${base_url} \x1b[0m`);
+    console.log(`\x1b[33mRunning with jwt authentication \x1b[0m`);
     console.log(`\x1b[35mConfiguration Options: \x1b[0m`);
     
     const killEndpointColor = process.env.DISABLE_KILL_ENDPOINT === 'false' ? '\x1b[32m' : '\x1b[31m'; // Green for 'true', Red for anything else
