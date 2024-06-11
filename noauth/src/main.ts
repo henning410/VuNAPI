@@ -28,7 +28,7 @@ async function bootstrap() {
   const port: number = config.get<number>("PORT");
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle("VuNAPI - no Auth")
+    .setTitle("VuNAPI - No Auth")
     .setDescription("OpenAPI v3 specs for VuNAPI")
     .setVersion("1.0")
     .addServer(base_url, "Local environment")
