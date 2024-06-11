@@ -54,6 +54,7 @@ docker-compose up --build no-auth
 ```
 
 ### ⚙️ Running Options / Disable Vulnerabilities
+By default, all options are enabled. You can disable the following:
 
 #### Rate Limiting
 
@@ -62,8 +63,8 @@ By default, rate limiting is enabled so that VuNAPI behaves like a real API. Thi
 
 #### HTTP/2
 
-By default VuNAPI uses HTTP/1.1. But it is possible to switch to HTTP/2 by using:
-`USE_HTTP2=true`
+By default VuNAPI uses HTTP/2 over HTTPS. But it is possible to switch to HTTP/1.1 and disable HTTPS by using:
+`DISABLE_HTTP2=true`
 
 #### Unreachable Server
 
