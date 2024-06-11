@@ -46,12 +46,21 @@ async function bootstrap() {
   app.enableCors();
 
   await app.listen(port, () => {
-    console.log("[WEB]", base_url);
-    console.log("Kill endpoint disabled: ", process.env.DISABLE_KILL_ENDPOINT);
-    console.log("Rate Limiting disabled: ", process.env.DISABLE_RATE_LIMITING);
-    console.log("RegexDoS disabled: ", process.env.DISABLE_REDOS);
-    console.log("OS command injection disabled: ", process.env.DISABLE_CMD_INJECTION);
-    console.log("HTTP2 enabled: ", process.env.USE_HTTP2);
+    console.log(" __      __    _   _          _____ _____ ")
+    console.log(" \\ \\    / /   | \\ | |   /\\   |  __ \\_   _|")
+    console.log("  \\ \\  / /   _|  \\| |  /  \\  | |__) || |  ")
+    console.log("   \\ \\/ / | | | . ` | / /\\ \\ |  ___/ | |  ")
+    console.log("    \\  /| |_| | |\\  |/ ____ \\| |    _| |_ ")
+    console.log("     \\/  \\__,_|_| \\_/_/    \\_\\_|   |_____|")
+    console.log("                                          ")
+
+    console.log(`\x1b[92mVuNAPI is running on: ${base_url} \x1b[0m`);
+    console.log(`\x1b[35mConfiguration Options: \x1b[0m`);
+    console.log(`\x1b[35m - Kill endpoint disabled: ${process.env.DISABLE_KILL_ENDPOINT} \x1b[0m`);
+    console.log(`\x1b[35m - Rate Limiting disabled: ${process.env.DISABLE_RATE_LIMITING} \x1b[0m`);
+    console.log(`\x1b[35m - RegexDoS disabled: ${process.env.DISABLE_REDOS} \x1b[0m`);
+    console.log(`\x1b[35m - OS command injection disabled: ${process.env.DISABLE_CMD_INJECTION} \x1b[0m`);
+    console.log(`\x1b[35m - HTTP2 enabled: ${process.env.USE_HTTP2} \x1b[0m`);
   });
 }
 
