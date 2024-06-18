@@ -26,7 +26,8 @@ services:
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
       DISABLE_REDOS: ${DISABLE_REDOS:-false}
       DISABLE_CMD_INJECTION: ${DISABLE_CMD_INJECTION:-false}
-      DISABLE_HTTP2: ${DISABLE_HTTP2:-false}  
+      DISABLE_HTTP2: ${DISABLE_HTTP2:-false}
+      DISABLE_HTTPS: ${DISABLE_HTTPS:-false}
     ports:
       - "3000:3000"
     depends_on:
@@ -45,7 +46,8 @@ services:
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
       DISABLE_REDOS: ${DISABLE_REDOS:-false}
       DISABLE_CMD_INJECTION: ${DISABLE_CMD_INJECTION:-false} 
-      DISABLE_HTTP2: ${DISABLE_HTTP2:-false} 
+      DISABLE_HTTP2: ${DISABLE_HTTP2:-false}
+      DISABLE_HTTPS: ${DISABLE_HTTPS:-false}
     ports:
       - "3000:3000"
     depends_on:
@@ -64,7 +66,8 @@ services:
       DISABLE_RATE_LIMITING: ${DISABLE_RATE_LIMITING:-false}
       DISABLE_REDOS: ${DISABLE_REDOS:-false}
       DISABLE_CMD_INJECTION: ${DISABLE_CMD_INJECTION:-false}
-      DISABLE_HTTP2: ${DISABLE_HTTP2:-false}  
+      DISABLE_HTTP2: ${DISABLE_HTTP2:-false}
+      DISABLE_HTTPS: ${DISABLE_HTTPS:-false}
     ports:
       - "3000:3000"
     depends_on:
