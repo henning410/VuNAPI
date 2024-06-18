@@ -65,12 +65,18 @@ By default, rate limiting is enabled so that VuNAPI behaves like a real API. Thi
 #### HTTP/2
 
 By default VuNAPI uses HTTP/2 over HTTPS. But it is possible to switch to HTTP/1.1 by using:
-`DISABLE_HTTP2=true`. If you use this option, HTTP/1.1 is used, but HTTPS is still enables.
+
+`DISABLE_HTTP2=true`.
+
+If you use this option, HTTP/1.1 is used, but HTTPS is still enabled.
 
 #### HTTPS
 
 When using HTTP/2, HTTPS cannot be disabled. But if you want to use HTTP/1.1 without HTTPS, add the following option: 
-`DISABLE_HTTPS=true`
+
+`DISABLE_HTTPS=true`. 
+
+Make sure, you are also disabling HTTP/2!
 
 
 #### Unreachable Server
