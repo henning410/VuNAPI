@@ -12,6 +12,7 @@ You can find more details about the vulnerabilities in [this document](./Vulnera
 
 - 📄 OpenAPI3 specs included.
 - 2️⃣ HTTP/2 support
+- 🔒 HTTPS On/Off Switch
 - 🔄 Global switch to toggle specific vulnerable scenarios.
 - 🔒 Selectable authentication methods: JWT, Basic, or no authentication.
 - 🖥️ Available Swagger UI to directly interact with the API.
@@ -54,7 +55,7 @@ docker-compose up --build no-auth
 ```
 
 ### ⚙️ Running Options / Disable Vulnerabilities
-By default, all options are enabled. You can disable the following:
+By default, all options are enabled. This means, VuNAPI is running by default using HTTP/2 over HTTPS. You can disable the following:
 
 #### Rate Limiting
 
@@ -63,8 +64,14 @@ By default, rate limiting is enabled so that VuNAPI behaves like a real API. Thi
 
 #### HTTP/2
 
-By default VuNAPI uses HTTP/2 over HTTPS. But it is possible to switch to HTTP/1.1 and disable HTTPS by using:
-`DISABLE_HTTP2=true`
+By default VuNAPI uses HTTP/2 over HTTPS. But it is possible to switch to HTTP/1.1 by using:
+`DISABLE_HTTP2=true`. If you use this option, HTTP/1.1 is used, but HTTPS is still enables.
+
+#### HTTPS
+
+When using HTTP/2, HTTPS cannot be disabled. But if you want to use HTTP/1.1 without HTTPS, add the following option: 
+`DISABLE_HTTPS=true`
+
 
 #### Unreachable Server
 
