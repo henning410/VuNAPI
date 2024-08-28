@@ -1,0 +1,246 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/person": {
+            "post": {
+                "operationId": "PersonController_createUser",
+                "summary": "Create new person",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "description": "Person to insert",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePersonDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Person has been successfully created.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Person"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, some fileds are missing"
+                    },
+                    "500": {
+                        "description": "Error creating user"
+                    }
+                },
+                "tags": [
+                    "person"
+                ]
+            }
+        },
+        "/person/{id}": {
+            "delete": {
+                "operationId": "PersonController_remove",
+                "summary": "Delete a person by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "example": 1,
+                        "description": "Person ID",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The person has been successfully deleted"
+                    },
+                    "400": {
+                        "description": "Id is in wrong format."
+                    },
+                    "404": {
+                        "description": "Person not found."
+                    }
+                },
+                "tags": [
+                    "person"
+                ]
+            }
+        },
+        "/books": {
+            "get": {
+                "operationId": "BooksController_getAllBooks",
+                "summary": "Get all books",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Return all books",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Book"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "books"
+                ]
+            },
+            "post": {
+                "operationId": "BooksController_createBook",
+                "summary": "Create new book",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "description": "Book to insert",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateBookDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Book has been successfully created.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Book"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request, some fileds are missing"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Error creating book"
+                    }
+                },
+                "tags": [
+                    "books"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "VuNAPI - No Auth",
+        "description": "OpenAPI v3 specs for VuNAPI",
+        "version": "1.0",
+        "contact": {}
+    },
+    "tags": [
+        {
+            "name": "person",
+            "description": ""
+        },
+        {
+            "name": "books",
+            "description": ""
+        }
+    ],
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "Local environment"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "CreatePersonDto": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "example": "john_doe",
+                        "description": "The username of the person"
+                    }
+                },
+                "required": [
+                    "username"
+                ]
+            },
+            "Person": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": 1,
+                        "description": "ID of the user"
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "henning",
+                        "description": "Username of the user"
+                    }
+                },
+                "required": [
+                    "id",
+                    "username"
+                ]
+            },
+            "Book": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": 1,
+                        "description": "ID of the book"
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Harry Potter Band 1",
+                        "description": "Title of the book"
+                    },
+                    "person": {
+                        "description": "Person who owns the book",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Person"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "person"
+                ]
+            },
+            "CreateBookDto": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Harry Potter Band 1",
+                        "description": "The title of the book"
+                    },
+                    "person_id": {
+                        "type": "number",
+                        "example": 1,
+                        "description": "The ID of the person"
+                    }
+                },
+                "required": [
+                    "title",
+                    "person_id"
+                ]
+            }
+        }
+    }
+}

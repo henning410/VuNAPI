@@ -55,17 +55,11 @@ async function configureAppAndListen(app, url) {
 
 function configureSwagger(base_url, app) {
   const swaggerConfig = new DocumentBuilder()
-    .setTitle("VuNAPI - Basic Auth")
+    .setTitle("VuNAPI - Simple Stateful")
     .setDescription("OpenAPI v3 specs for VuNAPI")
     .setVersion("1.0")
     .addServer(base_url, "Local environment")
-    .addTag("default").addTag("person")
-    .addTag("persons").addTag("login")
-    .addBasicAuth({
-      type: "http",
-      scheme: "basic",
-      description: "Enter the credentials",
-    }, "basic")
+    .addTag("person")
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
@@ -82,7 +76,7 @@ function printInfo(base_url) {
   console.log("                                          ")
 
   console.log(`\x1b[33mVuNAPI is running on: ${base_url} \x1b[0m`);
-  console.log(`\x1b[33mRunning with basic authentication \x1b[0m`);
+  console.log(`\x1b[33mRunning without authentication \x1b[0m`);
   console.log(`\x1b[35mConfiguration Options: \x1b[0m`);
 
   const killEndpointColor = process.env.DISABLE_KILL_ENDPOINT === 'false' ? '\x1b[32m' : '\x1b[31m'; // Green for 'true', Red for anything else
@@ -100,10 +94,6 @@ function printInfo(base_url) {
   const cmdInjectionColor = process.env.DISABLE_CMD_INJECTION === 'false' ? '\x1b[32m' : '\x1b[31m';
   const cmdInjectionStatus = process.env.DISABLE_CMD_INJECTION === 'false' ? 'enabled' : 'disabled';
   console.log(`\x1b[35m - OS command injection ${cmdInjectionColor}${cmdInjectionStatus}\x1b[0m`);
-
-  const logicalOrderErrorColor = process.env.DISABLE_LOGICAL_ORDER_ERROR === 'false' ? '\x1b[32m' : '\x1b[31m';
-  const logicalOrderErrorStatus = process.env.DISABLE_LOGICAL_ORDER_ERROR === 'false' ? 'enabled' : 'disabled';
-  console.log(`\x1b[35m - Logical-order error ${logicalOrderErrorColor}${logicalOrderErrorStatus}\x1b[0m`);
 
   const http2Color = process.env.DISABLE_HTTP2 === 'false' ? '\x1b[32m' : '\x1b[31m';
   const http2Status = process.env.DISABLE_HTTP2 === 'false' ? 'enabled' : 'disabled';

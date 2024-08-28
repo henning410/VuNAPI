@@ -99,6 +99,10 @@ function printInfo(base_url) {
   const cmdInjectionStatus = process.env.DISABLE_CMD_INJECTION === 'false' ? 'enabled' : 'disabled';
   console.log(`\x1b[35m - OS command injection ${cmdInjectionColor}${cmdInjectionStatus}\x1b[0m`);
 
+  const logicalOrderErrorColor = process.env.DISABLE_LOGICAL_ORDER_ERROR === 'false' ? '\x1b[32m' : '\x1b[31m';
+  const logicalOrderErrorStatus = process.env.DISABLE_LOGICAL_ORDER_ERROR === 'false' ? 'enabled' : 'disabled';
+  console.log(`\x1b[35m - Logical-order error ${logicalOrderErrorColor}${logicalOrderErrorStatus}\x1b[0m`);
+
   const http2Color = process.env.DISABLE_HTTP2 === 'false' ? '\x1b[32m' : '\x1b[31m';
   const http2Status = process.env.DISABLE_HTTP2 === 'false' ? 'enabled' : 'disabled';
   console.log(`\x1b[35m - HTTP2 ${http2Color}${http2Status}\x1b[0m`);

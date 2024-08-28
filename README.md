@@ -36,6 +36,10 @@ You can find more details about the vulnerabilities in [this document](./Vulnera
 | GET         | /persons/{id}    | Retrieve specific person by ID                |
 | **login**   |
 | POST        | /login           | Login to VuNAPI                               |
+| **resource**|
+| POST        | /resource        | Create a new resource                               |
+| PUT        | /resource/{id}/lock        | Lock a resource                             |
+| PUT        | /resource/{id}/unlock        | Unlock a resource                             |
 
 For more details, you can either run VuNAPI and visit `http://127.0.0.1:3000/api` or use a service like the [Swagger Editor](https://editor.swagger.io) by supplying the OpenAPI specification which can be downloaded from `http://127.0.0.1:3000/api-json`.
 
@@ -93,6 +97,11 @@ By default, the RegexDoS vulnerability is enabled. This can be disabled with the
 
 By default, the OS command injection vulnerability is enabled. This can be disabled with the following option:
 `DISABLE_CMD_INJECTION=true`
+
+#### Logical-Order Error
+
+By default, the logical-order error vulnerability is enabled. This can be disabled with the following option:
+`DISABLE_LOGICAL_ORDER_ERROR=true`
 
 ## 🛡️ Vulnerabilities
 
